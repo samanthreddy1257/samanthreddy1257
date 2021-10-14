@@ -10,14 +10,14 @@ pipeline {
             steps { 
                 script { 
                     sh "cd ${workspace}"
-                    sh "docker build -t tomcat_venkatasamanth ."
+                    sh "docker build -t tomcat_venkatap ."
                 }
             } 
         }
         stage('Deploy our image') { 
             steps { 
                 script { 
-                    sh "docker run -d -p 80:8080 tomcat_venkatasamanth"
+                    sh "docker run -d -p 80:8080 tomcat_venkatap"
                     }
                 } 
             }
