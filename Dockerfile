@@ -1,5 +1,5 @@
 FROM tomcat:8.0-alpine
-LABEL maintainer= "venkatasamanth.reddy9@gmail.com"
+LABEL maintainer= "satheeskumar.pmp@gmail.com"
 ADD sampleLogin.war /usr/local/tomcat/webapps/
 
 EXPOSE 443
