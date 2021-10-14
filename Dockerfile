@@ -3,5 +3,5 @@ LABEL maintainer="satheeskumar.pmp@gmail.com"
 
 ADD sampleLogin.war /usr/local/tomcat/webapps/
 
-EXPOSE 443
+EXPOSE 8080
 CMD ["catalina.sh", "run"]
