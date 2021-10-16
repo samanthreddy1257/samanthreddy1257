@@ -1,9 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage('Submit Stack') {
+        stage('Clone Repo') {
             steps {
-            sh "aws cloudformation create-stack --CloudVPC MyNetwork --template-body file://myfile.yaml --region 'us-east-1'"
+            sh "export AWS_DEFAULT_REGION=us-east-1"
+            sh "aws cloudformation create-stack --stack-name myteststack --template-body file://myfile.yaml --region 'us-east-1'"
               }
              }
             }
