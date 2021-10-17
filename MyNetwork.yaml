@@ -95,3 +95,4 @@ Resources:
   ElasticIPAddress:
     Type: AWS::EC2::EIP
     Properties:
+     Domain: VPC
