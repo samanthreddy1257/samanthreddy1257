@@ -1,4 +1,4 @@
-AWSTemplateFormatVersion: 2010-09-09
+AWSTemplateFormatVersion: 2021-16-10
 
 # This CloudFormation template deploys a basic VPC / Network.  Specifically:
 # It deploys a VPC with 4 subnets (public, private) across 1 Availability Zone
@@ -58,7 +58,7 @@ Resources:
       VpcId: !Ref VPC
       Tags:
       - Key: Name
-        Value: Public
+        Value: Public-RT
       
   # Here is a private route table:
   PrivateRouteTable:
@@ -67,7 +67,7 @@ Resources:
       VpcId: !Ref VPC
       Tags:
       - Key: Name
-        Value: Private
+        Value: Private-RT
 
   # Attach the public subnet to public route table, 
   # and attach the private subnet to private route table:    
