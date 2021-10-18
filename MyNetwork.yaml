@@ -67,7 +67,7 @@ Resources:
       VpcId: !Ref VPC
       Tags:
       - Key: Name
-        Value: Private-RT
+        Value: Private
 
   # Attach the public subnet to public route table, 
   # and attach the private subnet to private route table:    
