@@ -1,11 +1,19 @@
 pipeline {
     agent any
     stages {
-        stage('Clone Repo') {
-            steps {
-            sh "export AWS_DEFAULT_REGION=us-east-1"
-            sh "aws cloudformation create-stack --stack-name myteststack --template-body file://myfile.yaml --region 'us-east-1'"
-              }
-             }
+        stage('Cloning our Git') { 
+            steps { 
+                git 'https://github.com/samanthreddy1257/samanthreddy1257.git' 
             }
-            }
+        }
+         stage('cloudformation templete') { 
+            steps { 
+                script { 
+                    sh "cd ${workspace}"
+                    sh "aws --version"
+                    //sh "aws configure"
+                    sh "aws cloudformation create-stack --stack-name myteststack --template-body file://MyNetwork.yaml --region 'us-east-1'"              }
+            } 
+        }
+    }
+}
