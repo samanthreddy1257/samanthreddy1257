@@ -1,34 +1,36 @@
-AWSTemplateFormatVersion: '2010-09-09'
-Description: Amazon EKS -  kubectl Console Instance
-Parameters:
-  ConsoleInstanceType:
-    Description:  kubectl Console EC2 Instance Type
-    Type: String
-    Default: t2.micro
-    AllowedValues:
-    - t2.micro
-  ConsoleImageId:
-    Description:  kubectl Console AMI
-    Type: AWS::EC2::Image::Id
+--- 
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "Amazon EKS - Task4 Console Instance"
+Parameters: 
+  ConsoleImageId: 
     Default: ami-0d70c53588fb26913
-  KeyName:
-    Description: The EC2 Key Pair to allow SSH access to  kubectl Console
-    Type: AWS::EC2::KeyPair::KeyName
-  ConsoleTags:
-    Description:  kubectl Console Tags
+    Description: "Task4 Console AMI"
+    Type: "AWS::EC2::Image::Id"
+  ConsoleInstanceType: 
+    AllowedValues: 
+      - t2.micro
+    Default: t2.micro
+    Description: "Task4 Console EC2 Instance Type"
     Type: String
-    Default: kubectl-console
-Resources:
-  ConsoleEc2Instance:
-    Type: AWS::EC2::Instance
-    Properties:
-      ImageId:
+  ConsoleTags: 
+    Default: Task4-console
+    Description: "Task4 Console Tags"
+    Type: String
+  KeyName: 
+    Description: "The EC2 Key Pair to allow SSH access to Task4 Console"
+    Type: "AWS::EC2::KeyPair::KeyName"
+Resources: 
+  ConsoleEc2Instance: 
+    Properties: 
+      ImageId: 
         Ref: ConsoleImageId
-      KeyName:
-        Ref: KeyName
-      InstanceType:
+      InstanceType: 
         Ref: ConsoleInstanceType
-      Tags:
-      - Key: Name
-        Value:
-          Ref: ConsoleTags
+      KeyName: 
+        Ref: KeyName
+      Tags: 
+        - 
+          Key: Name
+          Value: 
+            Ref: ConsoleTags
+    Type: "AWS::EC2::Instance"
