@@ -66,10 +66,8 @@ Resources:
 
     InternetGateway:
     Type: AWS::EC2::InternetGateway
-    Properties:
-      Tags:
-        - Key: Name
-          Value: !Ref AWS::StackName
+    DependsOn: VPC
+      
 
   VPCGatewayAttachment:
     Type: AWS::EC2::VPCGatewayAttachment
